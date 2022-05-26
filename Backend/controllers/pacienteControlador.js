@@ -2,6 +2,7 @@ import Paciente from "../models/Paciente.js";
 import backup from 'mongodb-backup';
 
 const agregarPacientes = async (req, res, next) => {
+    
     const paciente = new Paciente(req.body);
     paciente.veterinario = req.body._id;
     try {

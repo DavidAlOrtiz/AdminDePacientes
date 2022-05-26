@@ -9,7 +9,7 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [alerta, setAlerta] = useState({})
-
+    const {setAuth}  = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async e =>{
@@ -32,6 +32,7 @@ function Login() {
         try {
             const {data} = await clienteA.post(`/veterinaria/login/`,{email, password});
             localStorage.setItem("token", data.token);
+           
             navigate('/admin')
         } catch (e) {
             setAlerta({
